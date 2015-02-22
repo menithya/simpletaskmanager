@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/task.css">
+
+</head>
+<body>
+
+	<div id="taskListArea" class="startLeft">
+	</div>
+
+
+	<div class="taskTemp taskBarTemplate startLeft" style="display:none;">
+		<input type="text" value="" id="listName">
+		<button onclick="addTask(event);">+</button>
+	</div>
+
+	<div class="task" draggable="true" ondragstart="return dragStart(event);" style="display:none;">
+		<p></p>
+		<button onclick="deletTask(event);">X</button>
+	</div>
+	<div class="taskArea startLeft" style="display:none;" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)"     ondragover="return dragOver(event)">
+		<button id="addTask" onclick="makeTaskTemp(event);">Add</button>
+		<span></span>
+	</div>
+
+	<div id="startArea">
+		<h2>Add list</h2>
+		<input type="text" />
+		<button onclick="createList(event);">Add a list</button>
+	</div>
+
+	<script type="text/javascript" src="js/taks.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>TM</title>
+	<style type="text/css">
+     .taskListArea{
+       display:none;
+     }
+     .task-display{
+     	display: block;
+     }
+     .taskArea{
+     	display: none;
+     }
+     .taks-text{
+       visibility: hidden;
+     }
+     .task-text-display{
+     	visibility: visible;
+     }
+
+     .task-hide{
+     	display: none;
+     }
+     .task-show{
+     	display: block;
+     }
+
+     .taskTemp{
+     	width: 300px;
+     	height: 30px;
+
+     }
+
+
+	</style>
+	<script type="text/javascript">
+
+       function addTaskList(e){
+			var listName = document.getElementById("txtListName").value;
+			var listTemp = document.getElementsByClassName("taskArea")[0];
+			listTemp = listTemp.cloneNode(true);
+			listTemp.setAttribute("class","task-display");
+			var name = listTemp.lastElementChild;
+			name.textContent = listName;
+			listTemp.style.display = "block";
+			var parent = document.getElementById("taksListArea");
+			parent.appendChild(listTemp);
+			e.target.parentNode.children[0].value = "";
+       }
+
+       function addTaksManager(event){
+       	  var parent = event.target.parentNode;
+       	  var task = document.getElementsByClassName("taskTemp")[0];
+       	      task.cloneNode(true)
+       	      task.style.display = "block";
+       	   var parent = document.getElementById("taksListArea");
+			parent.appendChild(task);
+
+       }
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<div>
+		<button onclick="addTaskList(event)">Add</button>
+		<input id="txtListName" type="text"> </input>
+	</div>
+
+	<div id="taksListArea">
+
+	</div>
+	<div class="taskArea">
+		<button onclick="addTaksManager(event)">add task</button>
+	</div>
+	<div class="taskTemp" style="display:none">
+		<input type="text" />
+		<input type="button" />
+	</div>
+</body>
+</html>
